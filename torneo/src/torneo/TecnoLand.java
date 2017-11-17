@@ -44,19 +44,26 @@ public class TecnoLand {
     
     public boolean añadirJuego(String nombreJuego){
         for (int i = 0; i < vJuegos.length; i++) {
-            if(vJuegos[i]!=null){
+            if(vJuegos[i]==null){
                 vJuegos[i] = new Juego(nombreJuego);
                 return true;
             }  
         }
         return false;
     }
-    public String[] mostrarJuegos(){
-        String vMJeugos[] = new String[5];
+    public void mostrarJuegos(){
         for (int i = 0; i < vJuegos.length; i++) {
-             vMJeugos[i]= vJuegos[i].toString();
+            if (vJuegos[i]!=null) 
+                System.out.println(vJuegos[i].getNombre());
+        }   
+    }
+    
+    public Juego seleccionarJuego(String nombre){
+        for (int i = 0; i < vJuegos.length; i++) {
+            if((vJuegos[i]!=null)&&(vJuegos[i].getNombre().equalsIgnoreCase(nombre))){
+                return vJuegos[i];
+            }
         }
-       
-        return vMJeugos;
+        return null;
     }
 }
