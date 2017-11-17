@@ -16,12 +16,11 @@ public class Torneo {
                 torneo.añadirJuego(leer.nextLine());
              break;
             case 2://Ver juegos
-                for (int i = 0; i < 6; i++) {
-                    torneo.mostrarJuegos();
-                }
-                    
+                torneo.mostrarJuegos();
              break;
             case 3://select juegos
+                torneo.mostrarJuegos();
+                System.out.println("Dime el nombre del juego a seleccionar");
                 
              break;
             case 4://Salir
