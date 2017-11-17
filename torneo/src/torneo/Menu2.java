@@ -9,8 +9,9 @@ public class Menu2 {
         if((menu>0)||(menu<5)){
         System.out.println("***************************");
         System.out.println("1-Añadir Juego");
-        System.out.println("2-Ir a Juegos");
-        System.out.println("3-Salir");
+        System.out.println("2-Ver Juegos");
+        System.out.println("3-Selecciona Juegos");
+        System.out.println("4-Salir");
         System.out.println("***************************");
         menu=leer.nextInt();
         }

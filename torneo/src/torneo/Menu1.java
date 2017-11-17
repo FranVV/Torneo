@@ -1,4 +1,4 @@
-package torneo;
+1package torneo;
 
 import java.util.Scanner;
 

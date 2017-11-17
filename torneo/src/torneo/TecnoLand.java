@@ -9,12 +9,10 @@ public class TecnoLand {
 
     }
 
-    public TecnoLand(int edicion, Juego[] vJuegos) {
+    public TecnoLand(int edicion) {
         this.edicion = edicion;
-        this.vJuegos = vJuegos;
+        this.vJuegos =new Juego[5];
     }
-    
-    
 
     /**
      * @return the edicion
@@ -44,4 +42,21 @@ public class TecnoLand {
         this.vJuegos = vJuegos;
     }
     
+    public boolean añadirJuego(String nombreJuego){
+        for (int i = 0; i < vJuegos.length; i++) {
+            if(vJuegos[i]!=null){
+                vJuegos[i] = new Juego(nombreJuego);
+                return true;
+            }  
+        }
+        return false;
+    }
+    public String[] mostrarJuegos(){
+        String vMJeugos[] = new String[5];
+        for (int i = 0; i < vJuegos.length; i++) {
+             vMJeugos[i]= vJuegos[i].toString();
+        }
+       
+        return vMJeugos;
+    }
 }
