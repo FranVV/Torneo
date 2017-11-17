@@ -14,13 +14,24 @@ public class Juego {
     }
     public Jugador[] ganadores() {
         Jugador vGanadores[]=new Jugador[3];
-        for (int i = 0; i < vParticipantes.length; i++) {
-            for (int j = 0; j < 10; j++) {
-                
-            }
+        
+        vGanadores[0]=vParticipantes[0];
+        
+        for (int i = 1; i < vParticipantes.length; i++) {
+           if (vParticipantes[i].getPuntuacion()>vGanadores[0].getPuntuacion()){
+               vGanadores[0]=vParticipantes[i];
+           }
         }
-        
-        
+        for (int i = 1; i < vParticipantes.length; i++) {
+           if ((vParticipantes[i].getPuntuacion()>vParticipantes[0].getPuntuacion())&&(vParticipantes[i].getPuntuacion()!=vGanadores[0].getPuntuacion())){
+               vGanadores[1]=vParticipantes[i];
+           }
+        }
+        for (int i = 1; i < vParticipantes.length; i++) {
+           if ((vParticipantes[i].getPuntuacion()>vParticipantes[0].getPuntuacion())&&(vParticipantes[i]!=vGanadores[0])&&(vParticipantes[i]!=vGanadores[1])){
+               vGanadores[2]=vParticipantes[i];
+           }
+        }
         return vGanadores;
     }
     public boolean añadirParticipante(Jugador jugador ){
