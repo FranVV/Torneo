@@ -1,4 +1,4 @@
-1package torneo;
+package torneo;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class Menu1 {
         System.out.println("2-Ver Puntos Jugador");
         System.out.println("3-Ver Jugadores");
         System.out.println("4-Ganadores");
-        System.out.println("5-Salir");
+        System.out.println("5-Atras");
         System.out.println("***************************");
         menu=leer.nextInt();
         }
