@@ -24,7 +24,7 @@ public class Juego {
     }
     public Jugador[] ganadores() {
         Jugador vGanadores[]=new Jugador[3];
-        
+        int pMaxima=0;
         vGanadores[0]=getvParticipantes()[0];
         
         for (int i = 1; i < getvParticipantes().length; i++) {
@@ -32,14 +32,17 @@ public class Juego {
                vGanadores[0]=getvParticipantes()[i];
            }
         }
-        for (int i = 1; i < getvParticipantes().length; i++) {
-           if ((vParticipantes[i]!=null)&&(getvParticipantes()[i].getPuntuacion()>getvParticipantes()[0].getPuntuacion())&&(getvParticipantes()[i].getPuntuacion()!=vGanadores[0].getPuntuacion())){
+        for (int i = 0; i < getvParticipantes().length; i++) {
+           if ((vParticipantes[i]!=null)&&(getvParticipantes()[i].getPuntuacion()>pMaxima)&&(getvParticipantes()[i].getPuntuacion()<vGanadores[0].getPuntuacion())){
                vGanadores[1]=getvParticipantes()[i];
+               pMaxima=vGanadores[1].getPuntuacion();
            }
         }
-        for (int i = 1; i < getvParticipantes().length; i++) {
-           if ((vParticipantes[i]!=null)&&(getvParticipantes()[i].getPuntuacion()>getvParticipantes()[0].getPuntuacion())&&(getvParticipantes()[i]!=vGanadores[0])&&(getvParticipantes()[i]!=vGanadores[1])){
+        pMaxima=0;
+        for (int i = 0; i < getvParticipantes().length; i++) {
+           if ((vParticipantes[i]!=null)&&(getvParticipantes()[i].getPuntuacion()>pMaxima)&&(getvParticipantes()[i].getPuntuacion()<vGanadores[1].getPuntuacion())){
                vGanadores[2]=getvParticipantes()[i];
+               pMaxima=vGanadores[2].getPuntuacion();
            }
         }
         return vGanadores;
