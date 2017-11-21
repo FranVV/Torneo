@@ -30,10 +30,14 @@ public class Torneo {
                     while(banderaS){
                         switch(Menu1.pintaMenu1()){
                             case 1://Añadir Participante
-                                String participante;
+                                String participante = null;
                                 int edadParticipante;
                                 System.out.println("Dime el nombre del participante");
+                                try{
                                 participante=leer.nextLine(); 
+                                }catch(Exception e){
+                                    System.out.println("Error has introducido un numero" +e.toString());
+                                }
                                 System.out.println("Dime la edad del participante");
                                 edadParticipante=leer2.nextInt(); 
                                 Jugador player = new Jugador(participante, edadParticipante);
