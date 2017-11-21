@@ -10,6 +10,9 @@ public class Juego {
     public Juego(String nombre) {
         this.nombre=nombre;
         this.vParticipantes=new Jugador[6];
+        vParticipantes[0]=new Jugador("Juan",40,600);
+        vParticipantes[1]=new Jugador("oa",20,500);
+        vParticipantes[2]=new Jugador("pep",40,700);
     }
 
     public Juego(String nombre, Jugador[] vParticipantes) {
@@ -25,17 +28,17 @@ public class Juego {
         vGanadores[0]=getvParticipantes()[0];
         
         for (int i = 1; i < getvParticipantes().length; i++) {
-           if (getvParticipantes()[i].getPuntuacion()>vGanadores[0].getPuntuacion()){
+           if ((vParticipantes[i]!=null)&&(getvParticipantes()[i].getPuntuacion()>vGanadores[0].getPuntuacion())){
                vGanadores[0]=getvParticipantes()[i];
            }
         }
         for (int i = 1; i < getvParticipantes().length; i++) {
-           if ((getvParticipantes()[i].getPuntuacion()>getvParticipantes()[0].getPuntuacion())&&(getvParticipantes()[i].getPuntuacion()!=vGanadores[0].getPuntuacion())){
+           if ((vParticipantes[i]!=null)&&(getvParticipantes()[i].getPuntuacion()>getvParticipantes()[0].getPuntuacion())&&(getvParticipantes()[i].getPuntuacion()!=vGanadores[0].getPuntuacion())){
                vGanadores[1]=getvParticipantes()[i];
            }
         }
         for (int i = 1; i < getvParticipantes().length; i++) {
-           if ((getvParticipantes()[i].getPuntuacion()>getvParticipantes()[0].getPuntuacion())&&(getvParticipantes()[i]!=vGanadores[0])&&(getvParticipantes()[i]!=vGanadores[1])){
+           if ((vParticipantes[i]!=null)&&(getvParticipantes()[i].getPuntuacion()>getvParticipantes()[0].getPuntuacion())&&(getvParticipantes()[i]!=vGanadores[0])&&(getvParticipantes()[i]!=vGanadores[1])){
                vGanadores[2]=getvParticipantes()[i];
            }
         }
@@ -59,10 +62,20 @@ public class Juego {
          }
         return false;
     }
-     public String verJugadores() {
-         return getvParticipantes().toString();
+     public void verJugadores() {
+         for (int i = 0; i < vParticipantes.length; i++) {
+            if (vParticipantes[i]!=null) 
+                System.out.println(vParticipantes[i].getNombre());
+        }
     }
-
+     public Jugador selectJugador(String nombre){
+         for (int i = 0; i < vParticipantes.length; i++) {
+            if((vParticipantes[i]!=null)&&(vParticipantes[i].getNombre().equalsIgnoreCase(nombre))){
+                return vParticipantes[i];
+            }
+        }
+        return null;
+    }
     /**
      * @return the nombre
      */

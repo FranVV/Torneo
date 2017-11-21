@@ -14,6 +14,13 @@ public class Jugador {
         this.edad = edad;
         this.puntuacion = puntuacion;
     }
+    
+
+    public Jugador(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.puntuacion = 0;
+    }
     public String toString(){
         return "Nombre: "+this.getNombre()+"\n"+
                  "Edad: "+this.getEdad()+"\n"+
